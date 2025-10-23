@@ -12,7 +12,7 @@ set(_Application_Sources
     source/setup.h
     source/platform.h
     source/platform_win32.cpp
-    source/platform_glfw.cpp
+    #source/platform_glfw.cpp
     source/renderer.h
     source/renderer_dx11.cpp
     source/renderer_ogl3.cpp
@@ -33,7 +33,7 @@ if (WIN32)
 
     if(BUILD_WITH_OPENGL)
         find_package(OpenGL REQUIRED)
-        find_package(glfw3 CONFIG REQUIRED)
+        #find_package(glfw3 CONFIG REQUIRED)
     else()
         list(APPEND _Application_Sources
             source/imgui_impl_dx11.cpp
@@ -87,17 +87,17 @@ if (OpenGL_FOUND)
     )
 endif()
 
-if (glfw3_FOUND)
-    set(HAVE_GLFW3 YES)
+#if (glfw3_FOUND)
+    #set(HAVE_GLFW3 YES)
 
-    list(APPEND _Application_Sources
-        source/imgui_impl_glfw.cpp
-        source/imgui_impl_glfw.h
-    )
-    target_link_libraries(application PRIVATE
-        glfw
-    )
-endif()
+    #list(APPEND _Application_Sources
+        #source/imgui_impl_glfw.cpp
+        #source/imgui_impl_glfw.h
+    #)
+    #target_link_libraries(application PRIVATE
+        #glfw
+    #)
+#endif()
 
 configure_file(
     source/config.h.in
@@ -105,7 +105,7 @@ configure_file(
 )
 
 target_compile_definitions(application PRIVATE
-    BACKEND_CONFIG=IMGUI_GLFW
+    #BACKEND_CONFIG=IMGUI_GLFW
     RENDERER_CONFIG=IMGUI_OGL3
 )
 
@@ -115,4 +115,4 @@ source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}" FILES ${_Application_Sources})
 
 target_sources(application PRIVATE ${_Application_Sources})
 
-set_property(TARGET application PROPERTY FOLDER "examples")
+set_property(TARGET application PROPERTY FOLDER "node/nodeapp")

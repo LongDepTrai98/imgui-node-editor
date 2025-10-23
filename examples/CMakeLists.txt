@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
-set(CMAKE_TOOLCHAIN_FILE "./vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+#set(CMAKE_TOOLCHAIN_FILE "./vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
 project(imgui-node-editor)
 
 # Define IMGUI_NODE_EDITOR_ROOT_DIR pointing to project root directory
 get_filename_component(IMGUI_NODE_EDITOR_ROOT_DIR ${CMAKE_SOURCE_DIR}/.. ABSOLUTE CACHE)
-
+set(IMGUI_NODE_EDITOR_ROOT_DIR ${CMAKE_SOURCE_DIR}/imgui-node-editor)
 # Enable solution folders in Visual Studio and Folders in Xcode
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -130,6 +130,8 @@ if(BUILD_EXAMPLE)
     add_subdirectory(basic-interaction-example)
     add_subdirectory(blueprints-example)
 else()
+    find_package(imgui REQUIRED)
+    find_package(imgui_node_editor REQUIRED)
     add_subdirectory(application)
 endif()
 

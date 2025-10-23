@@ -24,5 +24,5 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC IMGUI_DISABLE_OBSOLETE_FUNCTIO
 
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${_imgui_Sources})
 
-set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "external")
+set_property(TARGET ${PROJECT_NAME} PROPERTY FOLDER "node/external")
 

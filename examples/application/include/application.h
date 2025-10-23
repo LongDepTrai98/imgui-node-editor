@@ -54,4 +54,3 @@ private:
     ImFont*                     m_HeaderFont = nullptr;
 };
 
-int Main(int argc, char** argv);

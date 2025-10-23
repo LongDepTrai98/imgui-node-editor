@@ -101,7 +101,7 @@ bool RendererOpenGL3::Create(Platform& platform)
 # if PLATFORM(MACOS)
     const char* glslVersion = "#version 150";
 # else
-    const char* glslVersion = "#version 130";
+    const char* glslVersion = "#version 330";
 # endif
 
     if (!ImGui_ImplOpenGL3_Init(glslVersion))
